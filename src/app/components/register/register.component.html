@@ -1,0 +1,14 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+    <p>
+        <label for="name">Username</label>
+        <input type="text" formControlName="name" required>
+        <label for="password">Password</label>
+        <input type="text" formControlName="password" required>
+        <label for="bio">Bio</label>
+        <input type="text" formControlName="bio" required>
+        <span style="color: red"
+        *ngIf="registerForm.controls.name.invalid || registerForm.controls.password.invalid || registerForm.controls.bio.invalid"
+        >Please fill out registration details</span>
+    </p>
+    <button mat-flat-button type="submit" >Register</button>
+</form>

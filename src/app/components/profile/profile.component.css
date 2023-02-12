@@ -1,0 +1,44 @@
+@media only screen and (max-width: 700px){
+  mat-grid-list{
+      column-count: 1;
+  }
+    
+}
+
+.mat-card-title{
+    font-size: xx-large;
+  }
+  
+.profilePic{
+    min-width: 5em;
+    min-height: 5em;
+  }
+  
+.friend-section{
+  margin: 1em;
+  display: inline-block;
+  width: 25em;
+  max-width: 500px;
+  background-color: blanchedalmond;
+
+}
+/* button {
+  position: absolute;
+  right:    1%;
+  bottom:   2%;
+  width: 100px;
+  height: 30px;
+  font-size: xx-small;
+} */
+
+.friend-section:hover {
+  background-color: rgb(228, 28, 56);
+  color: rgb(253, 242, 217);
+}
+.friend-section:hover mat-card-subtitle {
+  color: rgb(253, 242, 217);
+}
+
+mat-grid-list{
+  overflow: auto;
+}

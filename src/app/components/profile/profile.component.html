@@ -1,0 +1,81 @@
+<mat-card>
+  <mat-card-header>
+    <img class="profilePic" mat-card-avatar src="{{profile?.profilePic}}">
+    <mat-card-title>{{profile?.name}}</mat-card-title>
+    <button mat-flat-button *ngIf="activeUser?.id == profile?.id" (click)="editToggle()"
+    id="editButton">{{editButton}}</button>
+    <ng-container *ngIf="edit">
+      <form [formGroup]="updateProfilePicForm" (ngSubmit)="updateProfilePic(profile)">
+        <mat-form-field>
+          <mat-label>Provide Picture URL</mat-label>
+          <input matInput placeholder="{{profile?.profilePic}}" type="text" formControlName="url" required>
+        </mat-form-field>
+        <button id="save-button" mat-flat-button>Save</button>
+      </form>
+    </ng-container>
+  </mat-card-header>
+  <mat-card-content>
+    <h1>About me</h1>
+
+    <!-- <ng-container *ngIf="!edit"> -->
+      <p>{{profile.bio}}</p>
+    <!-- </ng-container> -->
+    <!-- <ng-container *ngIf="edit">
+      <form [formGroup]="updateProfilePicForm" (ngSubmit)="updateProfilePic(profile)">
+        <mat-form-field>
+          <mat-label>What do you want to say about yourself?</mat-label>
+          <input matInput placeholder="{{profile?.bio}}" type="text" formControlName="url" required>
+        </mat-form-field>
+        <button id="save-button" mat-flat-button>Save</button>
+      </form>
+    </ng-container> -->
+
+    <!-- FOLLOWING GOES HERE -->
+    <h1>Following:</h1>
+    <mat-grid-list cols= 3 rowHeight=150px gutterSize="75px">
+      <ng-container *ngFor="let follow of following">
+        <mat-card class="friend-section">
+          <mat-card-header>
+            <img mat-card-avatar src="{{follow?.profilePic}}">
+            <a routerLink="/profile/{{follow?.id}}">{{follow?.name}}</a>
+            <!-- this is not a secure way to hide button -->
+            <button mat-flat-button *ngIf="activeUser?.id==profile?.id" (click)="unFollowUser(follow?.id)">Unfollow</button>
+          </mat-card-header>
+        </mat-card>
+      </ng-container>
+    </mat-grid-list>
+    
+      <!-- HUSQS GO HERE -->
+    <h1>Husqs:</h1>
+    <ng-container *ngFor="let husq of husqs">
+      <div>
+        <div class="card-body">
+          <mat-card-title>
+            <img mat-card-avatar src="{{profile?.profilePic}}">&nbsp;&nbsp;
+            &nbsp;You said...
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h6 class="card-subtitle mb-2 text-muted">{{husq?.date}}</h6>
+          </mat-card-subtitle>
+          <mat-card-content>
+            <p class="card-text">{{husq?.message}}</p>
+          </mat-card-content>
+          <button mat-flat-button (click)="removeHusq(husq?.id)" class="deleteButton" id="delete-button">Delete</button>
+          <div class="input-group mb-3">
+            <mat-card-actions>
+              <mat-form-field class="example-full-width">
+                <input class="replyText" matInput placeholder="Husq your reply" value="">
+              </mat-form-field>
+              <button mat-flat-button class="replyButton">Reply</button>
+              <mat-card-content>
+                <ng-container *ngFor="let reply of husq?.replies">
+                  <p class="card-text">{{reply}}</p>
+                </ng-container>
+              </mat-card-content>
+            </mat-card-actions>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

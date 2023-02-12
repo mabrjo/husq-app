@@ -1,0 +1,16 @@
+<div id="logged-user">{{activeUser.name}}</div>
+<div class="friend-list">
+    <mat-grid-list [cols]="columns" rowHeight=150px gutterSize="75px">
+        <mat-grid-tile *ngFor="let user of users">
+            <mat-card class="friend-card">
+                <mat-card-header>
+                    <img mat-card-avatar src="{{user.profilePic}}">
+                    <mat-card-title>{{user.name}}</mat-card-title>
+                    <mat-card-subtitle>{{user.bio}}</mat-card-subtitle>
+                    <!-- <button mat-flat-button (click)="addFriend(user)">Add Friend</button> -->
+                    <button mat-flat-button (click)="followUser(user)" id="follow-user">Follow</button>
+                </mat-card-header>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -1,0 +1,59 @@
+.mat-card-header{
+  font-size: xx-large;
+}
+
+.profilePic{
+  min-width: 4em;
+  min-height: 4em;
+}
+
+.husq-card {
+    max-width: 60em;
+    
+    margin: 1em 0;
+    margin-left: 40px;
+   }
+
+.mat-form-field {
+  float: left;
+  text-align: center;
+  width: 70%;
+  
+}
+
+.card-text {
+  font-size: large;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+img {
+  min-width: 60px;
+  min-height: 60px;
+}
+img.resize{
+  width: 10px !important;
+  height: 10px !important; 
+}
+
+.replyButton {
+  display: inline;
+  right:    5%;
+  bottom:   5%;
+  width: 100px;
+  height: 30px;
+  font-size: x-small;
+}
+
+.deleteButton {
+  font-size: x-small;
+}
+
+.replyArea{
+  margin: 1em 0;
+  justify-content: left;
+  
+  
+}

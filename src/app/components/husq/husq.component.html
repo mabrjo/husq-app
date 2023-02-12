@@ -1,0 +1,60 @@
+<mat-card class="husq-card">
+  <div>
+    <div class="card-body">
+      <mat-card-title>
+        <img mat-card-avatar src="{{husq?.profilePic}}">&nbsp;&nbsp;
+        <a class="nav-link" routerLink="/profile/{{husq?.userId}}">
+          {{husq?.name}}
+        </a> &nbsp;says...
+      </mat-card-title>
+      <mat-card-subtitle>
+        <h6 class="card-subtitle mb-2 text-muted">{{husq?.date}}</h6>
+      </mat-card-subtitle>
+
+      <mat-card-content>
+        <!-- DELETE FUNCTION -->
+        <button *ngIf="activeUser?.id == husq?.userId" (click)="removeHusq(husq)" class="deleteButton">Delete</button>
+
+        <!-- EDIT FUNCTION -->
+        <div>
+          <ng-container *ngIf="!edit">
+            <p class="card-text">{{husq?.message}}</p>
+          </ng-container>
+          <ng-container *ngIf="edit">
+            <form [formGroup]="editHusqForm" (ngSubmit)="editHusq(husq)" style="margin-bottom:20px" class="husqReply">
+              <mat-form-field>
+                <input matInput placeholder="{{husq?.message}}" type="text" formControlName="message" required>
+              </mat-form-field>
+              <button id="reply-button" mat-flat-button>Save</button>
+            </form>
+          </ng-container>
+          <button mat-flat-button *ngIf="activeUser?.id == husq?.userId" (click)="editToggle()"
+            id="editButton">{{editButton}}</button>
+        </div>
+
+      </mat-card-content>
+
+      <div class="input-group mb-3">
+      </div>
+    </div>
+  </div>
+  <!-- reply form here -->
+  <form [formGroup]="husqReply" (ngSubmit)="replyToHusq(husq?.id)" style="margin-bottom:20px" class="husqReply">
+    <mat-form-field>
+      <input id="reply-message-{{husq.id}}" matInput placeholder="Shuck their Husq" type="text"
+        formControlName="message" required>
+    </mat-form-field>
+    <button id="reply-button" mat-flat-button>Reply</button>
+  </form>
+
+
+  <!-- Pass replies into new component app-reply. -->
+  <!-- Reply card is nearly the same as husq card, but without a reply form so no nested replies -->
+  <!-- <app-reply *ngFor="let husq of timelineStore.getReplies(husq?.id); trackBy: identity" [husq]="husq"></app-reply> -->
+  <app-husq *ngFor="let husq of timelineStore.getReplies(husq?.id); trackBy: identity" [husq]="husq"></app-husq>
+
+
+</mat-card>
+
+
+<!-- id="{{husq.id}}" -->

@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+      "target": "http://husqhole.api.mcc-code-school.com/",
+      "secure": true,
+      "changeOrigin": true
+
+    }
+  }
+

@@ -1,0 +1,14 @@
+.compose-card {
+    min-height: 10em;
+    max-width: 50em;
+    margin: 1em 0;
+    margin-left: 40px;
+   }
+
+   .mat-form-field {
+    float: left;
+    text-align: center;
+    width: 70%;
+    
+  }
+  

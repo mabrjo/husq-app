@@ -1,0 +1,26 @@
+<!-- The app navbar and navigation links -->
+
+<div class="flex-container">
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button class="logo icon" aria-label="Nebraska">
+      <mat-icon routerLink="/">H</mat-icon>
+    </button>
+    <a routerLink="/timeline">Home</a>
+    <a [routerLink]="['/searchpage']" id='users-button'>Users</a>
+    <a [routerLink]="['/profile/', activeUser?.id]" id='profile-button'>Profile</a>
+    <span class="spacer"></span>
+    <span class="example-spacer"></span>
+    <button mat-button class="icon">Dark Mode</button>
+    <button id='logout-button' mat-button class="icon" (click)='logout()' routerLink="/login">
+      Logout
+    </button>
+    <button mat-icon-button class="icon" aria-label="Favorite button">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" aria-label="Share button">
+    <mat-icon>share</mat-icon>
+  </button>
+  </mat-toolbar>
+</div>
+
+<!-- End navbar -->

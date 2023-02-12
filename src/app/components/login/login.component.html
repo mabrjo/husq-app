@@ -1,0 +1,19 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <!-- <img mat-icon src="../../../assets/img/blackshirt.jpg"> -->
+    <div class="title" >Please Login to Husq Nation!</div>
+    <p>
+        <label for="name">Username</label>
+        <input type="text" formControlName="name" required>
+        <br>
+        <label for="password">Password</label>
+        <input [type]="hide ? 'password' : 'text'" formControlName="password" required>
+            <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <br>
+        <span id="invalid-login" style="color: red" 
+        *ngIf="loginForm.controls.name.touched && loginForm.controls.name.invalid && loginForm.controls.password.touched && loginForm.controls.password.invalid">
+        Invalid entry
+        </span>
+    </p>
+    <button id="login-button" mat-flat-button type="submit" >Login</button>
+    <button mat-flat-button class="reg-button" type="button" routerLink='/register'>Register</button>
+</form> 

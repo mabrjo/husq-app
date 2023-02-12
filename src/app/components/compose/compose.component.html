@@ -1,0 +1,13 @@
+<mat-card class="compose-card">
+    <mat-card-title>
+        <img mat-card-avatar src="{{activeUser.profilePic}}">
+        <span>Welcome {{activeUser.name}}! What's shuckin?</span>
+        <form [formGroup]="newHusq" (ngSubmit)="addHusq()">
+            <mat-form-field>
+                <input matInput placeholder="Shuck ur Husq" type="text" formControlName="message" required>
+            </mat-form-field>
+            <span style="color: red" *ngIf="newHusq.controls.message.touched && newHusq.controls.message.invalid">120 Characters Only</span>
+            <button id="husq-button" [disabled]="newHusq.invalid">Husq it!</button>
+        </form>
+    </mat-card-title>
+</mat-card>

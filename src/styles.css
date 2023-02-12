@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    background-color: rgb(253, 242, 217);
+    
+}
+
+.toolbar {
+    background-color: rgb(228, 28, 56);
+}
+
+.icon {
+    background-color: rgb(228, 28, 56);
+    color: #FDF2D9;
+    border: none;
+}
+.icon:hover {
+    color: white;
+}

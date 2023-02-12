@@ -1,0 +1,46 @@
+/* Style inputs */
+
+.title{
+  font-size: x-large;
+  font-weight: 500;
+}
+
+input[type=text], select {
+    width: 30em;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=password], select {
+    width: 30em;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .reg-button{
+    margin-left: 1em;
+  }
+
+
+  button{
+    background-color: #FDF2D9;
+  }
+
+  form{
+    display: inline-block;
+    justify-content: center;
+    align-content: center;
+    margin-left: 35%;
+    margin-top: 7em;
+    padding: 5%;
+    background-color: white;
+    
+  }
